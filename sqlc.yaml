@@ -13,7 +13,7 @@ sql:
         emit_prepared_queries: false
         emit_exact_table_names: false
     database:
-      uri: "postgresql://root:secret@127.0.0.1:5432/be-example-bi-post"
+      uri: "postgresql://root:secret@127.0.0.1:5433/seasalon"
 overrides:
   go: null
 plugins: []

@@ -21,7 +21,7 @@ func main() {
 		log.Fatal("Cannot connect to db:", err)
 	}
 
-	user := repository.NewProduk(conn)
+	user := repository.NewRepos(conn)
 	server, err := server.NewServer(config, user)
 	if err != nil {
 		log.Fatal("cannot create server:", err)

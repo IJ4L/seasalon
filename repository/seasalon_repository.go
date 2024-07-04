@@ -7,23 +7,23 @@ import (
 	db "gitlab/go-prolog-api/example/db/sqlc"
 )
 
-type Produk interface {
+type Repo interface {
 	db.Querier
 }
 
-type SQLProduk struct {
+type SQLRepo struct {
 	*db.Queries
 	db *sql.DB
 }
 
-func NewProduk(dbms *sql.DB) Produk {
-	return &SQLProduk{
+func NewRepos(dbms *sql.DB) Repo {
+	return &SQLRepo{
 		db:      dbms,
 		Queries: db.New(dbms),
 	}
 }
 
-func (SQLProduk *SQLProduk) execTx(ctx context.Context, fn func(*db.Queries) error) error {
+func (SQLProduk *SQLRepo) execTx(ctx context.Context, fn func(*db.Queries) error) error {
 	tx, err := SQLProduk.db.BeginTx(ctx, nil)
 	if err != nil {
 		return err
